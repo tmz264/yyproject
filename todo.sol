@@ -2,11 +2,12 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract todo {
-
+//いいねボタン用にgoodというuint変数を追加しときました
   struct Todo {
     string contents;
     bool is_opened;
     bool is_deleted;
+    uint good;
   }
 
   Todo[] public todos;
@@ -48,7 +49,7 @@ contract todo {
 
   // 引数から TODO を作成し storage に保存する
   function createTODO(string memory _contents) public returns(uint) {
-    todos.push(Todo(_contents, true, false));
+    todos.push(Todo(_contents, true, false,0));
     uint id = todos.length - 1;
     todoToOwner[id] = msg.sender;
 
@@ -62,10 +63,14 @@ contract todo {
     // 指定の id の TODO をアップデートする
     todos[_id].is_opened = _is_opened;
   }
-    function updateall(uint _id, bool _is_opened) public (_id) {
-    // 指定の id の TODO をアップデートする
+
+    //　
+    function updateall(uint _id, bool _is_opened) public {
     todos[_id].is_opened = _is_opened;
   }
+
+//実際にデータを削除しているわけではなく、Todo構造体のis_deletedというブール値を変更し、非表示にすることで、ぱっと見削除されているように見せかけている
+//いいね機能の実装をする場合は、このコードが参考になると思う
 
   function deleteTODO(uint _id) public onlyMine(_id) {
     require(todos[_id].is_deleted == false);
@@ -76,4 +81,10 @@ contract todo {
     // TODO 数を減らす
     todoCountByOwner[msg.sender]--;
   }
+  
+
+
+
+
+
 }
