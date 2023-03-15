@@ -38,7 +38,7 @@ $(document).on("click", ".deleteTodoButton", function () {
 $(document).on("change", "input[type=checkbox]", function(){
   const id=$(this).parent().attr('id');
   const is_opened=$(this).prop("checked") ? false : true
-  updateTodo(id, is_opened);
+  updateall(id, is_opened);
 });
 
 // TODOの作成
@@ -50,7 +50,7 @@ function createTodo(msg) {
 }
 
 // TODOの更新
-function updateTodo(id, is_opened) {
+function updateall(id, is_opened) {
   updateABI(id, is_opened);
 }
 
