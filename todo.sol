@@ -62,6 +62,10 @@ contract todo {
     // 指定の id の TODO をアップデートする
     todos[_id].is_opened = _is_opened;
   }
+    function updateall(uint _id, bool _is_opened) public (_id) {
+    // 指定の id の TODO をアップデートする
+    todos[_id].is_opened = _is_opened;
+  }
 
   function deleteTODO(uint _id) public onlyMine(_id) {
     require(todos[_id].is_deleted == false);
