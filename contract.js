@@ -35,42 +35,6 @@ const contractAddress = "0x34b5D1e242e9148da94735db081d353fa0e9aC31"
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "_is_opened",
-				"type": "bool"
-			}
-		],
-		"name": "updateall",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "_is_opened",
-				"type": "bool"
-			}
-		],
-		"name": "updateTODO",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "getTODO",
 		"outputs": [
@@ -78,6 +42,25 @@ const contractAddress = "0x34b5D1e242e9148da94735db081d353fa0e9aC31"
 				"internalType": "uint256[]",
 				"name": "",
 				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "todoToOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -121,19 +104,18 @@ const contractAddress = "0x34b5D1e242e9148da94735db081d353fa0e9aC31"
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_id",
 				"type": "uint256"
-			}
-		],
-		"name": "todoToOwner",
-		"outputs": [
+			},
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
+				"internalType": "bool",
+				"name": "_is_opened",
+				"type": "bool"
 			}
 		],
-		"stateMutability": "view",
+		"name": "updateTODO",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
