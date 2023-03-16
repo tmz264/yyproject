@@ -38,7 +38,9 @@ contract todo {
     uint counter = 0;
 
     for (uint i = 0; i < todos.length; i++) {
-      if (todoToOwner[i] == msg.sender && todos[i].is_deleted == false) {
+      //たぶんここじゃね？表示制限かけてるの
+      if (todos[i].is_deleted == false) {
+  //    if (todoToOwner[i] == msg.sender && todos[i].is_deleted == false) {
         result[counter] = i;
         counter++;
       }
@@ -65,9 +67,9 @@ contract todo {
   }
 
     //　
-    function updateall(uint _id, bool _is_opened) public {
-    todos[_id].is_opened = _is_opened;
-  }
+  ////  function updateall(uint _id, bool _is_opened) public {
+  ////  todos[].is_opened = _is_opened;
+  ////}
 
 //実際にデータを削除しているわけではなく、Todo構造体のis_deletedというブール値を変更し、非表示にすることで、ぱっと見削除されているように見せかけている
 //いいね機能の実装をする場合は、このコードが参考になると思う
@@ -81,10 +83,5 @@ contract todo {
     // TODO 数を減らす
     todoCountByOwner[msg.sender]--;
   }
-  
-
-
-
-
 
 }
