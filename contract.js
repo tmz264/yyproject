@@ -1,7 +1,20 @@
 // Set contract address
-const contractAddress = "0xD54E113FBF38C165f799f6da35c06b795D09aD2D"
+const contractAddress = "0x4cC83d534AB2C01cCb0a71a200C8Ec46495C215B"
 // まだ修正してない
  const ContractAbi = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "adoptTODO",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
 	{
 		"inputs": [
 			{
