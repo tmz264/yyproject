@@ -12,7 +12,6 @@
 			<!-- Bootstrapとは							 ： https://tech-blog.rakus.co.jp/entry/20210226/bootstrap -->
 			<!-- Bootstrapによるスタイル索引 ： https://www.limosuki.com/2022/02/bootstrap5-class.html -->
 			
-
 		<!-- Javascript読み込み -->
 			<script src='contract.js'></script>
 			<script type="module" src='main.js'></script>
@@ -26,10 +25,18 @@
 					//alert('JavaScriptは走ってます')
 					if (document.getElementById('modeChgBox').checked){
 						// 採用ボタンを非表示
-						document.getElementsByClassName('class').style.display = 'none'
+						//document.getElementsByClassName('class').style.display = 'none'
+						var UnVis = document.getElementsByClassName('adoptBtn');
+							for(var i = 0; i < UnVis.length; i++) {
+								UnVis[i].style.display = "inline";
+							}
 					}else{
 						// 採用ボタンを表示
-						document.getElementsByClassName('class').style.display = 'inline'
+						//document.getElementsByClassName('class').style.display = 'inline'
+						var Vis = document.getElementsByClassName('adoptBtn');
+							for(var i = 0; i < Vis.length; i++) {
+								Vis[i].style.display = "none";
+							}
 					}
 				}
 			</script>
@@ -105,7 +112,7 @@
 		<div class="fixed-bottom m-2">
 			<label>
 				<input id="modeChgBox" type="checkbox" onclick="DisplayChg()">
-				<span data-off="ユーザモード" data-on="管理者モード"></span>
+				<span data-on="ユーザモード" data-off="管理者モード"></span>
 			</label>
 		</div>
 
