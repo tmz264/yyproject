@@ -27,29 +27,6 @@ $("#createTodoButton").click(function () {
   createTodo($("#createTodoInput").val());
 });
 
-// 採用ボタンクリック時の演出
-document.querySelector(".button").addEventListener("click", function (e) {
-  party.confetti(this, {
-      //lifetime: 5,
-      count: party.variation.range(50, 100),
-      //speed: party.variation.range(20, 40),
-      //size: 100,
-  });
-});
-
-// // 管理者用とユーザ用の表示を切り替える
-// function DisplayChg() {
-//   alert('JavaScriptは走ってます')
-//   if (document.getElementById('modeChgBox').checked){
-//     // 採用ボタンを非表示
-//     document.getElementById('adoptBtn').style.display = 'inline'
-//   }else{
-//     // 採用ボタンを表示
-//     document.getElementById('adoptBtn').style.display = 'none'
-//   }
-// }
-
-
 // 削除ボタン押下時の処理
 // DOM 生成後に作られたオブジェクトなので on を使う
 $(document).on("click", ".deleteTodoButton", function () {
@@ -59,15 +36,34 @@ $(document).on("click", ".deleteTodoButton", function () {
 
 // 投票ボタン押下時の処理
 $(document).on("click", ".voteButton", function () {
+  //alert('ここは走ってます:1')
   const id=$(this).parent().attr('id');
   voteItem(id);
 });
 
 // 採用ボタン押下時の処理
 $(document).on("click", ".adoptionButton", function () {
+  // 紙吹雪
+  party.confetti(this, {
+      //lifetime: 5,
+      count: party.variation.range(50, 100),
+      //speed: party.variation.range(20, 40),
+      //size: 100,
+  });
+
   const id=$(this).parent().attr('id');
   adoptItem(id);
 });
+
+// // 採用ボタンクリック時の演出
+// document.querySelector(".button").addEventListener("click", function (e) {
+//   party.confetti(this, {
+//       //lifetime: 5,
+//       count: party.variation.range(50, 100),
+//       //speed: party.variation.range(20, 40),
+//       //size: 100,
+//   });
+// });
 
 // チェックボックス押下時の処理
 // DOM 生成後に作られたオブジェクトなので on を使う
@@ -98,6 +94,7 @@ function deleteTodo(id) {
 
 // 投票時の処理
 function voteItem(id) {
+  //alert('ここは走ってます:2')
   voteABI(id).
   then(() => displayTodo());
 }
@@ -153,10 +150,12 @@ function _updateDisplay(todoList) {
   for (const e of todoList) {
     const checkFlag = e.is_opened ? "" : "checked"
 
+    // Solidity側のストレージに自分のTODOリストがあった場合、以下のHTMLを作成 (ボタンやチェックボックス、テキスト)
     todoHTMLItems = todoHTMLItems + '<li id="'+ e.id +'" class="list-group-item border-0 d-flex align-items-center ps-0">\
-      <input class="adoptionButton btn btn-success mx-2" class="adoptBtn" onmousedown="party.confetti(this)" type="button" value="採用!"/>\
+      <input class="adoptBtn adoptionButton btn btn-success mx-2" onmousedown="party.confetti(this)" type="button" value="採用!"/>\
       <input class="voteButton btn btn-secondary mx-2" type="button" value="投票"/>\
-      <input class="form-check-input mx-2" type="checkbox" value="" aria-label="..." ' + checkFlag + ' />' + e.contents + " / 投票件数：" + e.voteCnt + '</li>'
+      <input class="form-check-input mx-2" type="checkbox" value="" aria-label="..." ' + checkFlag + ' />'
+       + e.contents + " / 投票件数：" + e.voteCnt + '</li>'
   }
 
   // 画面の更新
@@ -197,89 +196,5 @@ async function voteABI(id) {
 // contract で Itemを採用
 async function adoptABI(id) {
   await contract.methods.adoptTODO(id).send({from: web3.eth.defaultAccount})
-  alert('アイデアを採用しました。アイデア投稿者にトークンが付与されました。')
-}
-
-
-var selecterBox = document.getElementById('sample');
-var selecter = document.getElementById('changeSelect');
-var item1 = document.getElementById('Box');
-var item2 = document.getElementById('Box2');
-var item3 = document.getElementById('Box3');
-var item4 = document.getElementById('Box4');
-var item5 = document.getElementById('Box5');
-selecterBox.style.display = "none";
-item1.style.display = "none";
-item2.style.display = "none";
-item3.style.display = "none";
-item4.style.display = "none";
-item5.style.display = "none";
-
-    function formSwitch() {
-        check = document.getElementsByClassName('js-check')
-        if (check[0].checked) {
-            selecterBox.style.display = "none";
-            item1.style.display = "none";
-            item2.style.display = "none";
-            item3.style.display = "none";
-            item4.style.display = "none";
-            item5.style.display = "none";
-            selecter.selectedIndex = 0;
-
-        } else if (check[1].checked) {
-            selecterBox.style.display = "block";
-
-        } else {
-            selecterBox.style.display = "none";
-        }
-    }
-    window.addEventListener('load', formSwitch());
-
-function entryChange2(){
-    if(document.getElementById('changeSelect')){
-    id = document.getElementById('changeSelect').value;
-
-    if(id == 'select2'){
-        item1.style.display = "block";
-        item2.style.display = "none";
-        item3.style.display = "none";
-        item4.style.display = "none";
-        item5.style.display = "none";
-    }
-    else if(id == 'select3'){
-        item1.style.display = "none";
-        item2.style.display = "block";
-        item3.style.display = "none";
-        item4.style.display = "none";
-        item5.style.display = "none";
-    }
-    else if(id == 'select4'){
-        item1.style.display = "none";
-        item2.style.display = "none";
-        item3.style.display = "block";
-        item4.style.display = "none";
-        item5.style.display = "none";
-    }
-    else if(id == 'select5'){
-        item1.style.display = "none";
-        item2.style.display = "none";
-        item3.style.display = "none";
-        item4.style.display = "block";
-        item5.style.display = "none";
-    }
-     else if(id == 'select6'){
-        item1.style.display = "none";
-        item2.style.display = "none";
-        item3.style.display = "none";
-        item4.style.display = "none";
-        item5.style.display = "block";
-    }
-    else{
-        item1.style.display = "none";
-        item2.style.display = "none";
-        item3.style.display = "none";
-        item4.style.display = "none";
-        item5.style.display = "none";
-    }
-}
+  alert('アイデアを採用し、アイデア投稿者にトークンが付与されました。')
 }
