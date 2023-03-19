@@ -150,8 +150,8 @@ function _updateDisplay(todoList) {
   let todoHTMLItems = ""
   for (const e of todoList) {
     const checkFlag = e.is_opened ? "" : "checked"
-    let addr=getowner(e.id)
-    let addr2 = addr[0]
+    let addres　=　getowner(e.id)
+
 
     // Solidity側のストレージに自分のTODOリストがあった場合、以下のHTMLを作成 (ボタンやチェックボックス、テキスト)
     todoHTMLItems = todoHTMLItems + '<li id="'+ e.id +'" class="list-group-item border-0 d-flex align-items-center ps-0">\
