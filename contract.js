@@ -1,5 +1,5 @@
 // Set contract address
-const contractAddress = "0x4cC83d534AB2C01cCb0a71a200C8Ec46495C215B"
+const contractAddress = "0x952854b1f9477A6cF08e663d1eAbD458713DD2c2"
 // まだ修正してない
  const ContractAbi = [
 	{
@@ -92,6 +92,19 @@ const contractAddress = "0x4cC83d534AB2C01cCb0a71a200C8Ec46495C215B"
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "getTODO2",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -146,9 +159,9 @@ const contractAddress = "0x4cC83d534AB2C01cCb0a71a200C8Ec46495C215B"
 	}
 ]
  
- // Set contract address
+ // token.sol用のアドレス
 const contractAddress2 = "0xb21579A1243550ED3F1bB5c9243dC0f61B409483"
-// まだ修正してない
+//  token.sol用のabi
  const ContractAbi2 = [
 	{
 		"anonymous": false,
