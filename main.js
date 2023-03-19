@@ -150,7 +150,7 @@ function _updateDisplay(todoList) {
   let todoHTMLItems = ""
   for (const e of todoList) {
     const checkFlag = e.is_opened ? "" : "checked"
-    let addres= getowner(e.id)
+    getowner(e.id)
 
     // Solidity側のストレージに自分のTODOリストがあった場合、以下のHTMLを作成 (ボタンやチェックボックス、テキスト)
     todoHTMLItems = todoHTMLItems + '<li id="'+ e.id +'" class="list-group-item border-0 d-flex align-items-center ps-0">\
@@ -170,8 +170,6 @@ async function getABI() {
 }
 // contract から TODO リストを取得
 async function getowner(id) {
-	console.log("動いてる？")
-	console.log(await contract.methods.getowner(id).call({from: web3.eth.defaultAccount}))
   return await contract.methods.getowner(id).call({from: web3.eth.defaultAccount})
 }
 
