@@ -1,5 +1,5 @@
 // Set contract address
-const contractAddress = "0x045ec2fe81a301f5dE85D12873f49a9A83cfC515"
+const contractAddress = "0x99F3d921502eC2544A6c17Cd9D45127f9E47802B"
 // まだ修正してない
  const ContractAbi =[
 	{
@@ -48,56 +48,6 @@ const contractAddress = "0x045ec2fe81a301f5dE85D12873f49a9A83cfC515"
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "_is_opened",
-				"type": "bool"
-			}
-		],
-		"name": "updateTODO",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			}
-		],
-		"name": "voteTODO",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			}
-		],
-		"name": "getowner",
-		"outputs": [
-			{
-				"internalType": "uint160",
-				"name": "",
-				"type": "uint160"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "getTODO",
 		"outputs": [
@@ -118,6 +68,44 @@ const contractAddress = "0x045ec2fe81a301f5dE85D12873f49a9A83cfC515"
 				"internalType": "uint256[]",
 				"name": "",
 				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "getowner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "todoToOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -161,19 +149,31 @@ const contractAddress = "0x045ec2fe81a301f5dE85D12873f49a9A83cfC515"
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "_is_opened",
+				"type": "bool"
+			}
+		],
+		"name": "updateTODO",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
 				"type": "uint256"
 			}
 		],
-		"name": "todoToOwner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
+		"name": "voteTODO",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
