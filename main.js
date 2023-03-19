@@ -150,7 +150,7 @@ function _updateDisplay(todoList) {
   let todoHTMLItems = ""
   for (const e of todoList) {
     const checkFlag = e.is_opened ? "" : "checked"
-    let addres=await contract.methods.getowner(e.id).call({from: web3.eth.defaultAccount})
+    let addres= contract.methods.getowner(e.id).call({from: web3.eth.defaultAccount})
 
     // Solidity側のストレージに自分のTODOリストがあった場合、以下のHTMLを作成 (ボタンやチェックボックス、テキスト)
     todoHTMLItems = todoHTMLItems + '<li id="'+ e.id +'" class="list-group-item border-0 d-flex align-items-center ps-0">\
