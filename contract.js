@@ -1,7 +1,7 @@
 // Set contract address
-const contractAddress = "0x952854b1f9477A6cF08e663d1eAbD458713DD2c2"
+const contractAddress = "0xf5Cd995B34Fc249FECB1A6c55E64FA1Ac07F107a"
 // まだ修正してない
- const ContractAbi = [
+ const ContractAbi =[
 	{
 		"inputs": [
 			{
