@@ -170,6 +170,7 @@ async function getABI() {
 }
 // contract から TODO リストを取得
 async function getowner(id) {
+	print("動いてる？")
 	print(await contract.methods.getowner(id).call({from: web3.eth.defaultAccount}))
   return await contract.methods.getowner(id).call({from: web3.eth.defaultAccount})
 }
