@@ -1,5 +1,5 @@
 // Set contract address
-const contractAddress = "0x3C9fa4bbA56761662bbD3950e96D9a41Ed6F8e3A"
+const contractAddress = "0x045ec2fe81a301f5dE85D12873f49a9A83cfC515"
 // まだ修正してない
  const ContractAbi =[
 	{
@@ -89,9 +89,9 @@ const contractAddress = "0x3C9fa4bbA56761662bbD3950e96D9a41Ed6F8e3A"
 		"name": "getowner",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "uint160",
 				"name": "",
-				"type": "address"
+				"type": "uint160"
 			}
 		],
 		"stateMutability": "view",
