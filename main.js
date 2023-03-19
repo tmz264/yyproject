@@ -157,7 +157,7 @@ function _updateDisplay(todoList) {
       <input class="adoptBtn adoptionButton btn btn-success mx-2" onmousedown="party.confetti(this)" type="button" value="採用!"/>\
       <input class="voteButton btn btn-secondary mx-2" type="button" value="投票"/>\
       <input class="form-check-input mx-2" type="checkbox" value="" aria-label="..." ' + checkFlag + ' />'
-       + e.contents + " / 投票件数：" + e.voteCnt + '</li>'
+       + e.contents + " / 投票件数：" + e.voteCnt + addres + '</li>'
   }
 
   // 画面の更新
