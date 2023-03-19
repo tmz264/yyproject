@@ -6,7 +6,7 @@
 </head>
 <body>
  <p>Faucetのデモサイト</p>
- <button type=“button” onclick="doFunction();">トークンを入金3</button>
+ <button type=“button” onclick="doFunction();">トークンを入金4</button>
  <script type="text/javascript">
 
   // メタマスクに接続する
@@ -280,7 +280,7 @@
   // ボタンがクリックされたときに、Faucetのコントラクトを実行する
   async function doFunction() {
    const account = await getCurrentAccount();　// 利用者のメタマスクのウォレットアドレスを取得
-   const send = await contract.methods.mint(5 * 10^18).send({from: account});//これでウォレットに100入金できるのか？
+   const send = await contract.methods.mint(10).send({from: account});//これでウォレットに100入金できるのか？
    
    console.log(send);
   }
