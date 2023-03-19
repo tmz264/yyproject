@@ -280,7 +280,7 @@
   // ボタンがクリックされたときに、Faucetのコントラクトを実行する
   async function doFunction() {
    const account = await getCurrentAccount();　// 利用者のメタマスクのウォレットアドレスを取得
-   const send = await contract.methods.mint(10).send({from: account});//これでウォレットに100入金できるのか？
+   const send = await contract.methods.mint(10 * 10 ** decimals()).send({from: account});//これでウォレットに100入金できるのか？
    
    console.log(send);
   }
