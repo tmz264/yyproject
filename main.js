@@ -150,7 +150,7 @@ function _updateDisplay(todoList) {
   let todoHTMLItems = ""
   for (const e of todoList) {
     const checkFlag = e.is_opened ? "" : "checked"
-    let addres　=　getowner(e.id)
+   // let addres　=　getowner(e.id)
 
 
     // Solidity側のストレージに自分のTODOリストがあった場合、以下のHTMLを作成 (ボタンやチェックボックス、テキスト)
@@ -158,7 +158,7 @@ function _updateDisplay(todoList) {
       <input class="adoptBtn adoptionButton btn btn-success mx-2" onmousedown="party.confetti(this)" type="button" value="採用!"/>\
       <input class="voteButton btn btn-secondary mx-2" type="button" value="投票"/>\
       <input class="form-check-input mx-2" type="checkbox" value="" aria-label="..." ' + checkFlag + ' />'
-       + e.contents + " / 投票件数：" + e.voteCnt + addres + '</li>'
+       + e.contents + " / 投票件数：" + e.voteCnt  + '</li>'
   }
 
   // 画面の更新
